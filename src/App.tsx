@@ -6,7 +6,7 @@ import { SideNav } from './components/navigation/SideNav'
 function App() {
 
   return (
-    <div className='flex flex-row max-h-full h-full'>
+    <div className='flex flex-row max-h-full h-screen'>
         <div className='w-2/12 bg-green-600 shadow'>
             <SideNav />
         </div>
