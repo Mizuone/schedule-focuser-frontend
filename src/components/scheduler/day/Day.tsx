@@ -1,15 +1,19 @@
-interface DayProps {
-    day: string
-    dayOfMonth: string
-}
+export const Day = () => {
+    const dayContainer = [];
 
-export const Day = (props: DayProps) => {
-    const { day, dayOfMonth } = props;
-
+    for (let i = 0; i < 18; i++) {
+        if (i + 1 >= 18) {
+            dayContainer.push(<div key={"day" + i} className="h-12 border-t border-b border-r border-gray-100"></div>)
+        } else {
+            dayContainer.push(<div key={"day" + i} className="h-12 border-t border-r border-gray-100"></div>)
+        }
+    }
+    
     return (
-        <div className="w-full">
-            <h3 className="text-center">{day}</h3>
-            <h2 className="text-xl text-center">{dayOfMonth}</h2>
-        </div>
+        <>
+            <div className="w-full">
+                {dayContainer}
+            </div>
+        </>
     )
 }

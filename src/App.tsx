@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 
-import { Dashboard } from './components/dashboard/Dashboard';
+import { Scheduler } from './components/scheduler/Scheduler';
 import { SideNav } from './components/navigation/SideNav'
 
 function App() {
@@ -12,7 +12,8 @@ function App() {
         </div>
         <div className='flex-auto px-4'>
             <Routes>
-                <Route path="/" element={ <Dashboard /> } />
+                <Route path="/" element={ <Scheduler /> } />
+                <Route path="/scheduler" element={ <Scheduler /> } />
             </Routes>
         </div>
     </div>
