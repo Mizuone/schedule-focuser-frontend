@@ -1,18 +1,23 @@
-export const Day = () => {
-    const dayContainer = [];
+import { normalDayHours } from "../../../helpers/dayHours";
 
-    for (let i = 0; i < 18; i++) {
-        if (i + 1 >= 18) {
-            dayContainer.push(<div key={"day" + i} className="h-12 border-t border-b border-r border-gray-100"></div>)
-        } else {
-            dayContainer.push(<div key={"day" + i} className="h-12 border-t border-r border-gray-100"></div>)
-        }
-    }
-    
+export const Day = () => {    
     return (
         <>
             <div className="w-full">
-                {dayContainer}
+                {
+                    normalDayHours.map((dayHour, index) => {
+                        return (
+                            <div key={"day-" + dayHour.label} className={`${index === normalDayHours.length - 1 ? 'border-b' : "h-12"} border-t border-r border-gray-100`}>
+                                <div className="flex flex-col h-full">
+                                    <div className={`${dayHour.hour}:15 ${dayHour.amOrPM} h-full day-hour`}></div>
+                                    <div className={`${dayHour.hour}:30 ${dayHour.amOrPM} h-full day-hour`}></div>
+                                    <div className={`${dayHour.hour}:45 ${dayHour.amOrPM} h-full day-hour`}></div>
+                                    <div className={`${dayHour.hour}:00 ${dayHour.amOrPM} h-full day-hour`}></div>
+                                </div>
+                            </div>
+                        );
+                    })
+                }
             </div>
         </>
     )
