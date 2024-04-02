@@ -4,31 +4,31 @@ import { DayHourLabels } from "./day-hour-labels/DayHourLabels"
 import { getCurrentWeekDates } from "../../helpers/helpers";
 
 export const Scheduler = () => {
+    const currentWeekDates = getCurrentWeekDates();
+
     return (
         <>
-            <div className="content flex-col">
-                <div className="flex tile rounded shadow flex-col m-1 mt-4">
-                    <div className="scheduler-header flex">
-                        <div className="spacer m-4"></div>
+            <div className="flex tile rounded shadow flex-col p-2">
+                <div className="flex flex-row">
+                    <div className="w-16 h-12"></div>
+                    <div className="scheduler-header flex w-full">
                         {
-                            getCurrentWeekDates().map((day, index) => {
+                            currentWeekDates.map((day, index) => {
                                 return <DayHeader key={`${day.dayOfWeek} - ${index}`} day={day.dayOfWeek} dayOfMonth={day.dayOfMonth} currentDay={day.isCurrentDay}/>;
                             })
                         }
                     </div>
-                    <div className="scheduler-content flex flex-row h-full overflow-visible">
-                        <div className="flex flex-col">
-                            <DayHourLabels />
-                        </div>
-                        <div className="flex w-full max-h-screen overflow-auto">
-                            <Day />
-                            <Day />
-                            <Day />
-                            <Day />
-                            <Day />
-                            <Day />
-                            <Day />
-                        </div>
+                </div>
+                <div className="flex flex-row overflow-visible">
+                    <div className="flex flex-col">
+                        <DayHourLabels />
+                    </div>
+                    <div className="flex w-full scrollbar-styling overflow-auto">
+                        {
+                            currentWeekDates.map((day) => {
+                                return <Day key={`${day.dayOfWeek}-${day.dayOfMonth}`} day={day} />
+                            })
+                        }
                     </div>
                 </div>
             </div>
