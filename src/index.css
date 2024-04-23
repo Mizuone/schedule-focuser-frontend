@@ -8,6 +8,16 @@
     height: 100%;
 }
 
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.fade-in-modal {
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+    animation: fadein 300ms;
+}
+
 .scrollbar-styling {
     &::-webkit-scrollbar {
         width: 8px;
