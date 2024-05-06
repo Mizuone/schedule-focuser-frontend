@@ -7,8 +7,6 @@ import { BrowserRouter } from 'react-router-dom';
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-console.log(import.meta.env.VITE_API_URL);
-
 const client = createClient({
   url: import.meta.env.VITE_API_URL || 'http://localhost:3001/graphql',
   exchanges: [cacheExchange, fetchExchange]

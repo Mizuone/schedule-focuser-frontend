@@ -35,3 +35,9 @@
         scrollbar-width: thin;
     }
 }
+
+.navlink .active {
+    background-color: aliceblue;
+    color: #111;
+    border-radius: 0.75rem;
+}
