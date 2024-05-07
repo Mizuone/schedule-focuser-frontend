@@ -5,7 +5,7 @@ interface ButtonProps {
 }
 
 export const Button = (props: ButtonProps) => {
-    const { children, onClick, styles = '' } = props;
+    const { children, onClick, styles = "" } = props;
     
     return (
         <button className={styles} onClick={onClick}>

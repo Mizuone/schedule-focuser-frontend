@@ -25,22 +25,31 @@ export const Dashboard = () => {
                         Goals
                     </div>
                     <div className="h-full tile rounded shadow p-2 m-2">
-                        <div className="flex items-center">
-                            <h2 className="font-semibold text-2xl mb-2">Total Focus Time</h2>
-                            <span>
-                                <p className="mx-2">Week</p>
+                        <div className="flex mb-2 items-baseline">
+                            <h2 className="text-2xl">Total Focus Time - </h2>
+                            <div className="flex">
+                                <span className="mx-2 text-xl align-bottom">Week</span>
                                 <Button onClick={toggleWeek}>
-                                    {focusRanges.showWeek ? (
-                                        <IconEyeOpen />
-                                    ): (
-                                        <IconEyeClosed />
-                                    )}
+                                    {focusRanges.showWeek ? (<IconEyeOpen styles="icon-active icon-sm mt-1" />) : (<IconEyeClosed styles="icon-faded icon-sm mt-1" /> )}
                                 </Button>
-                            </span>
-                            <label className="mx-2">Month<input className="ml-2 align-middle" type="checkbox" /></label>
-                            <label className="mx-2">Year<input className="ml-2 align-middle" type="checkbox" /></label>
+                            </div>
+                            <div className="flex">
+                                <span className="mx-2 text-xl">Month</span>
+                                <Button onClick={toggleMonth}>
+                                    {focusRanges.showMonth ? ( <IconEyeOpen styles="icon-active icon-sm mt-1" /> ) : ( <IconEyeClosed styles="icon-faded icon-sm mt-1" /> )}
+                                </Button>
+                            </div>
+                            <div className="flex">
+                                <span className="mx-2 text-xl">Year</span>
+                                <Button onClick={toggleYear}>
+                                    {focusRanges.showYear ? ( <IconEyeOpen styles="icon-active icon-sm mt-1" /> ) : ( <IconEyeClosed styles="icon-faded icon-sm mt-1" /> )}
+                                </Button>
+                            </div>
                         </div>
                         <hr />
+                        <ul>
+                            <li>Week (10-16)</li>
+                        </ul>
                     </div>
                 </div>
             </div>
