@@ -1,4 +1,4 @@
-import { IconProps } from "../interfaces"
+import { IconProps } from "../interfaces";
 
 export const IconEyeOpen = (props: IconProps) => {
     const { styles = '' } = props;

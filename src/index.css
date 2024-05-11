@@ -40,6 +40,11 @@ body {
     }
 }
 
+.progress-transition {
+    transition: width 1s;
+    animation: fadein 1s;
+}
+
 .navlink .active {
     background-color: aliceblue;
     color: #111;
