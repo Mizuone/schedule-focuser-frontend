@@ -1,44 +1,12 @@
+import { goals, masteries } from "../../helpers/data/fakeData";
+
 import { BarDetails } from "../reuseable/interfaces";
 import { Button } from "../reuseable/Button";
+import { Card } from "../reuseable/Card";
 import { IconEyeClosed } from "../reuseable/Icons/EyeClosed";
 import { IconEyeOpen } from "../reuseable/Icons/EyeOpen";
 import { ProgressBar } from "../reuseable/ProgressBar";
 import { useState } from "react";
-
-interface Goal {
-    name: string;
-    currentAmount: number;
-    goalAmount: number;
-    attributingMastery: string;
-}
-
-const goals: Goal[] = [
-    {
-        name: 'Dev Time',
-        currentAmount: 20,
-        goalAmount: 60,
-        attributingMastery: 'Software Developer II'
-    },
-];
-const emptyGoals: Goal[] = [];
-
-
-interface Mastery {
-    title: string;
-    currentAmount: number;
-    nextMasteryLevel: number;
-    requiredAmount: number;
-}
-
-const masteries: Mastery[] = [
-    {
-        title: 'Software Developer 2',
-        currentAmount: 400,
-        nextMasteryLevel: 3,
-        requiredAmount: 560 
-    },
-];
-const emptyMasteries: Mastery[] = [];
 
 export const Dashboard = () => {
     const [focusRanges, setFocusRanges] = useState({
@@ -59,46 +27,70 @@ export const Dashboard = () => {
                     <hr />
                 </div>
                 <div className="flex w-full h-full flex-col">
-                    <div className="flex flex-col h-full tile rounded shadow p-2 m-2">
-                        <h2 className="text-2xl">Goals</h2>
-                        <hr />
-                        <div className="flex h-full justify-center items-center">
-                            <p className="italic text-gray-500 text-center">No Active Goals</p>
-                        </div>
-                        <h2 className="text-2xl">Masteries</h2>
-                        <hr />
-                        <div className="flex h-full flex-col">
-                            {masteries.length ? (
-                                <ul>
-                                    {
-                                        masteries.map((mastery, index) => {
-                                            const { title, currentAmount, nextMasteryLevel, requiredAmount } = mastery;
-                                            const details: BarDetails = {
-                                                barValue: currentAmount,
-                                                barInnerText: title,
-                                                goalValue: requiredAmount,
-                                                goalInnerText: ` - Level ${nextMasteryLevel} (${requiredAmount - currentAmount} hours needed)`
-                                            };
+                    <Card cardTitle="Goals">
+                        {goals.length ? (
+                            <ul className="w-full p-2">
+                                {
+                                    goals.map((goal, index) => {
+                                        const { name, currentAmount, goalAmount } = goal;
+                                        const details: BarDetails = {
+                                            barValue: currentAmount,
+                                            barInnerText: `${currentAmount} hours of`,
+                                            goalValue: goalAmount,
+                                            goalInnerText: `${goalAmount}`
+                                        };
 
-                                            return (
-                                                <li key={'mastery-' + index}>
-                                                    <ProgressBar
-                                                        barDetails={details}
-                                                        barStyles="bg-gray-200 text-base"
-                                                        containerStyles="h-6 border-gray-500"
-                                                    />
-                                                </li>
-                                            )
-                                        })
-                                    }
-                                </ul>
-                            ) : (
-                                <div className="flex h-full justify-center items-center">
-                                    <p className="italic text-gray-500 text-center">No Active Masteries</p>
-                                </div>
-                            )}
-                        </div>
-                    </div>
+                                        return (
+                                            <li key={`goal-${name}-${index}`} className="flex justify-center items-center w-full">
+                                                <ProgressBar
+                                                    label={name}
+                                                    barDetails={details}
+                                                    barStyles="bg-gray-300 text-sm"
+                                                    containerStyles="border-gray-300 rounded-xl"
+                                                />
+                                            </li>
+                                        )
+                                    })
+                                }
+                            </ul>
+                        ) : (
+                            <div className="flex h-full w-full justify-center items-center bg-gray-50">
+                                    <p className="italic text-gray-500 text-center">No Active Goals</p>
+                            </div>
+                        )}
+                    </Card>
+                    <Card cardTitle="Masteries">
+                        {masteries.length ? (
+                            <ul className="w-full p-2">
+                                {
+                                    masteries.map((mastery, index) => {
+                                        const { title, currentAmount, masteryLevel, requiredAmount } = mastery;
+                                        const details: BarDetails = {
+                                            barValue: currentAmount,
+                                            barInnerText: `${requiredAmount - currentAmount} hours until next level`,
+                                            goalValue: requiredAmount,
+                                        };
+
+                                        return (
+                                            <li key={'mastery-' + index} className="flex justify-center items-center w-full">
+                                                <h3 className="w-56 mr-4">{title}</h3>
+                                                <p className="w-24 text-base">Lvl. {masteryLevel}</p>
+                                                <ProgressBar
+                                                    barDetails={details}
+                                                    barStyles="bg-gray-300 text-sm"
+                                                    containerStyles="border-gray-300 rounded-xl"
+                                                />
+                                            </li>
+                                        )
+                                    })
+                                }
+                            </ul>
+                        ) : (
+                            <div className="flex h-full w-full justify-center items-center bg-gray-50">
+                                <p className="italic text-gray-500 text-center">No Active Masteries</p>
+                            </div>
+                        )}
+                    </Card>
                     <div className="h-full tile rounded shadow p-2 m-2">
                         <div className="flex mb-2 items-baseline">
                             <h2 className="text-2xl">Total Focus Time - </h2>
