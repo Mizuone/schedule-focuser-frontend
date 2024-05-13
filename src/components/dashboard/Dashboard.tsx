@@ -44,9 +44,10 @@ export const Dashboard = () => {
                                             <li key={`goal-${name}-${index}`} className="flex justify-center items-center w-full">
                                                 <ProgressBar
                                                     label={name}
+                                                    labelClasses="text-base"
                                                     barDetails={details}
-                                                    barStyles="bg-gray-300 text-sm"
-                                                    containerStyles="border-gray-300 rounded-xl"
+                                                    barClasses="bg-gray-300 text-sm"
+                                                    containerClasses="border-gray-300 h-6 rounded-xl"
                                                 />
                                             </li>
                                         )
@@ -77,8 +78,8 @@ export const Dashboard = () => {
                                                 <p className="w-24 text-base">Lvl. {masteryLevel}</p>
                                                 <ProgressBar
                                                     barDetails={details}
-                                                    barStyles="bg-gray-300 text-sm"
-                                                    containerStyles="border-gray-300 rounded-xl"
+                                                    barClasses="bg-gray-300 text-sm"
+                                                    containerClasses="border-gray-300 h-8 rounded-xl"
                                                 />
                                             </li>
                                         )
@@ -119,24 +120,24 @@ export const Dashboard = () => {
                                 <ProgressBar
                                     label="Week"
                                     barDetails={{barValue: 50, barInnerText: `40 hours`, goalValue: 0, goalInnerText: 'of 60 hours'}} 
-                                    barStyles="bg-green-100"
-                                    containerStyles="border-green-200"
+                                    barClasses="bg-green-100"
+                                    containerClasses="border-green-200 h-8"
                                 />
                             )}
                             {focusRanges.showMonth && (
                                 <ProgressBar
                                     label="Month"
                                     barDetails={{ barValue: 140, barInnerText: `140 hours`, goalValue: 0, goalInnerText: 'of 200 hours' }}
-                                    barStyles="bg-green-200"
-                                    containerStyles="border-green-300"
+                                    barClasses="bg-green-200"
+                                    containerClasses="border-green-300 h-8"
                                 />
                             )}
                             {focusRanges.showYear && (
                                 <ProgressBar
                                     label="Year"
                                     barDetails={{ barValue: 400, barInnerText: `400 hours`, goalValue: 0, goalInnerText: 'of 560 hours' }}
-                                    barStyles="bg-green-300"
-                                    containerStyles="border-green-400"
+                                    barClasses="bg-green-300"
+                                    containerClasses="border-green-400 h-8"
                                 />
                             )}
                         </ul>

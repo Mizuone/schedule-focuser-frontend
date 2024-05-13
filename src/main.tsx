@@ -1,4 +1,5 @@
-import './index.css'
+import './styles/colors.css';
+import './index.css';
 
 import { Provider, cacheExchange, createClient, fetchExchange } from 'urql';
 

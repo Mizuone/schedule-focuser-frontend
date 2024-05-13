@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
 
 import { BarDetails } from "./interfaces";
+import { RGBColor } from "../../theme/Colors";
 
 interface ProgressBarProps {
     barDetails: BarDetails; 
     label?: string;
-    containerStyles?: string;
-    barStyles?: string;
+    labelClasses?: string;
+    containerClasses?: string;
+    barClasses?: string;
+    barColorRGB?: RGBColor;
 }
 
 export const ProgressBar = (props: ProgressBarProps) => {
-    const { label, containerStyles = '', barStyles = '', barDetails } = props;
+    const { label, labelClasses, containerClasses = '', barClasses = '', barDetails } = props;
     const { barValue, goalValue, barInnerText = "", goalInnerText = "" } = barDetails;
 
     const [barWidth, setBarWidth] = useState<number>(0);
@@ -34,10 +37,10 @@ export const ProgressBar = (props: ProgressBarProps) => {
 
     return (
         <div className="w-full">
-            {label && ( <h3 className="text-xl">{label}</h3> )}
-            <div className={`${containerStyles} flex w-full h-8 m-1 rounded border border-gray-200 shadow text-nowrap text-center text-base`}>
-                <div className={`${barStyles} ${goalDifferance > 0 ? 'rounded-l-xl' : ""} flex items-center rounded justify-center progress-transition text-nowrap text-center text-base`}
-                    style={{ width: barWidth + '%' }}
+            {label && (<h3 className={labelClasses}>{label}</h3> )}
+            <div className={`${containerClasses} flex w-full m-1 rounded border shadow text-nowrap text-center`}>
+                <div style={{ width: barWidth + '%' }}
+                     className={`${barClasses} ${goalDifferance > 0 ? 'rounded-l-xl' : ""} flex items-center rounded justify-center progress-transition text-nowrap text-center`}
                 >
                     <span>{barInnerText}&nbsp;</span>
                     { goalDifferance > 0 && (
