@@ -14,7 +14,7 @@ export const goals: Goal[] = [
     },
     {
         name: 'Game Dev',
-        currentAmount: 40,
+        currentAmount: 80,
         goalAmount: 100,
         attributingMastery: 'Game Developer'
     },

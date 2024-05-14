@@ -67,7 +67,7 @@ body {
 }
 
 .progress-transition {
-    transition: width 1s;
+    transition: width 1s, background-color 1s;
     animation: fadein 1s;
 }
 
@@ -75,6 +75,14 @@ body {
     background-color: aliceblue;
     color: #111;
     border-radius: 0.75rem;
+}
+
+.rounded-x {
+    border-radius: 0.625rem;
+}
+
+.h-50-percent {
+    height: 50%;
 }
 
 .icon-sm {

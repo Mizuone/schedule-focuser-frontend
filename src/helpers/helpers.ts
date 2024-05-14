@@ -32,6 +32,38 @@ export const getCurrentWeekDates = (): CurrentDayDate[] => {
     }, []);
 }
 
+/*export const getShortSchedule = (): CurrentDayDate[] => {
+    const currentDate: Date = new Date();
+    const currentDay: number = currentDate.getDay();
+
+    let closestDates: CurrentDayDate[] = [
+        {
+            date:,
+            dayOfWeek,
+            dayOfMonth,
+            isCurrentDay: false,
+        },
+        {
+            date: currentDate,
+            dayOfWeek,
+            dayOfMonth,
+            isCurrentDay: true,
+        },
+        {
+            date:,
+            dayOfWeek,
+            dayOfMonth,
+            isCurrentDay: false,
+        },
+    ];
+
+    for (let i = 0; i < 3; i++) {
+
+    }
+
+    return closestDates;
+}*/
+
 export const hexToRGB = (hex: string): RGBColor => {
     const hexRegex = /^#?([A-Fa-f\d]{6}|[A-Fa-f\d]{3})$/;
     if (!hexRegex.test(hex)) {
@@ -43,4 +75,8 @@ export const hexToRGB = (hex: string): RGBColor => {
     const [r, g, b] = separatedHex ? separatedHex.map(value => parseInt(value, 16)) :  [0, 0, 0];
 
     return { r, g, b };
+}
+
+export const getComputedStyleValue = (propertyName: string): string => {
+    return getComputedStyle(document.documentElement).getPropertyValue(propertyName);
 }
