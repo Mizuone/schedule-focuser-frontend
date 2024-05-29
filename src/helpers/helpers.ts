@@ -32,37 +32,45 @@ export const getCurrentWeekDates = (): CurrentDayDate[] => {
     }, []);
 }
 
-/*export const getShortSchedule = (): CurrentDayDate[] => {
+export const getShortSchedule = (): CurrentDayDate[] => {
     const currentDate: Date = new Date();
-    const currentDay: number = currentDate.getDay();
+    let currentDay: number = currentDate.getDay();
+
+    let previousDay: number = currentDay - 1;
+    let nextDay: number = currentDay + 1;
+
+    if (currentDay + 1 > daysOfWeek.length) nextDay = 0;
+    if (currentDay - 1 < 0) previousDay = 6;
+
+    const previousDate = new Date();
+    previousDate.setDate(currentDate.getDate() - 1);
+    
+    const nextDate = new Date();
+    nextDate.setDate(currentDate.getDate() + 1);
 
     let closestDates: CurrentDayDate[] = [
         {
-            date:,
-            dayOfWeek,
-            dayOfMonth,
+            date: previousDate,
+            dayOfWeek: daysOfWeek[previousDay],
+            dayOfMonth: previousDate.getDate().toString(),
             isCurrentDay: false,
         },
         {
             date: currentDate,
-            dayOfWeek,
-            dayOfMonth,
+            dayOfWeek: daysOfWeek[currentDay],
+            dayOfMonth: currentDate.getDate().toString(),
             isCurrentDay: true,
         },
         {
-            date:,
-            dayOfWeek,
-            dayOfMonth,
+            date: nextDate,
+            dayOfWeek: daysOfWeek[nextDay],
+            dayOfMonth: nextDate.getDate().toString(),
             isCurrentDay: false,
         },
     ];
 
-    for (let i = 0; i < 3; i++) {
-
-    }
-
     return closestDates;
-}*/
+}
 
 export const hexToRGB = (hex: string): RGBColor => {
     const hexRegex = /^#?([A-Fa-f\d]{6}|[A-Fa-f\d]{3})$/;

@@ -1,9 +1,10 @@
-import { Goals } from "./subcomponents/Goals";
-import { Masteries } from "./subcomponents/Masteries";
+import { Masteries } from "../performance/subcomponents/Masteries";
+import { Pursuits } from "../performance/subcomponents/Pursuits";
 import { Schedule } from "./subcomponents/Schedule";
-import { Statistics } from "./subcomponents/Statistics";
+import { Statistics } from "../performance/subcomponents/Statistics";
 
 export const Dashboard = () => {
+    
     return (
         <>
             <div className="flex relative h-full">
@@ -11,7 +12,7 @@ export const Dashboard = () => {
                     <Schedule />
                 </div>
                 <div className="flex w-full h-full flex-col">
-                    <Goals />
+                    <Pursuits />
                     <Masteries />
                     <Statistics />
                 </div>

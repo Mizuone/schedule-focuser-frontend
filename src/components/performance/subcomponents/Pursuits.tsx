@@ -4,17 +4,17 @@ import { tertiaryCSSVar, tertiaryColorHex } from "../../../theme/Colors";
 import { BarDetails } from "../../reuseable/interfaces";
 import { Card } from "../../reuseable/Card";
 import { ProgressBar } from "../../reuseable/ProgressBar";
-import { goals } from "../../../helpers/data/fakeData";
+import { pursuits } from "../../../helpers/data/fakeData";
 
-export const Goals = () => {
+export const Pursuits = () => {
     const goalBarRGB = hexToRGB(getComputedStyleValue(tertiaryCSSVar));
 
     return (
-        <Card cardTitle="Goals">
-            {goals.length ? (
+        <Card cardTitle="Pursuits">
+            {pursuits.length ? (
                 <ul className="w-full p-2">
                     {
-                        goals.map((goal, index) => {
+                        pursuits.map((goal, index) => {
                             const { name, currentAmount, goalAmount } = goal;
                             const details: BarDetails = {
                                 barValue: currentAmount,

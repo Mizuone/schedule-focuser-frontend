@@ -1,31 +1,31 @@
-export interface Goal {
+export interface Pursuit {
     name: string;
     currentAmount: number;
     goalAmount: number;
     attributingMastery: string;
 }
 
-export const goals: Goal[] = [
+export const pursuits: Pursuit[] = [
     {
         name: 'Dev Time',
-        currentAmount: 20,
+        currentAmount: 44,
         goalAmount: 60,
         attributingMastery: 'Software Developer'
     },
     {
-        name: 'Game Dev',
-        currentAmount: 80,
-        goalAmount: 100,
+        name: 'Godot 4: Character Port',
+        currentAmount: 63,
+        goalAmount: 85,
         attributingMastery: 'Game Developer'
     },
     {
-        name: 'Game Dev',
+        name: 'Blender: New Enemy',
         currentAmount: 40,
-        goalAmount: 100,
+        goalAmount: 60,
         attributingMastery: 'Game Developer'
     },
 ];
-export const emptyGoals: Goal[] = [];
+export const emptyPursuits: Pursuit[] = [];
 
 
 export interface Mastery {
@@ -38,15 +38,15 @@ export interface Mastery {
 export const masteries: Mastery[] = [
     {
         title: 'Software Developer',
-        currentAmount: 400,
-        masteryLevel: 2,
-        requiredAmount: 560
+        currentAmount: 8920,
+        masteryLevel: 20,
+        requiredAmount: 10000
     },
     {
         title: 'Game Developer',
-        currentAmount: 200,
-        masteryLevel: 1,
-        requiredAmount: 250
+        currentAmount: 1600,
+        masteryLevel: 12,
+        requiredAmount: 2400
     },
 ];
 export const emptyMasteries: Mastery[] = [];

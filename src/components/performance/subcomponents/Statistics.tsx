@@ -20,7 +20,7 @@ export const Statistics = () => {
     return (
         <div className="h-full tile rounded shadow p-2 m-2">
             <div>
-                <div className="flex mb-2 items-baseline">
+                <div className="flex items-baseline">
                     <h2 className="text-2xl">Total Focus Time - </h2>
                     <div className="flex">
                         <span className="mx-2 text-xl">Week</span>
@@ -41,12 +41,12 @@ export const Statistics = () => {
                         </Button>
                     </div>
                 </div>
-                <hr />
+                <hr className="my-1" />
                 <ul>
                     {focusRanges.showWeek && (
                         <ProgressBar
                             label="Week"
-                            barDetails={{ barValue: 50, barInnerText: `40 hours`, goalValue: 0, goalInnerText: 'of 60 hours' }}
+                            barDetails={{ barValue: 50, barInnerText: `43 hours`, goalValue: 0, goalInnerText: 'of 60 hours' }}
                             containerClasses="h-8"
                             barColorHex={tertiaryColorHex}
                         />
@@ -54,7 +54,7 @@ export const Statistics = () => {
                     {focusRanges.showMonth && (
                         <ProgressBar
                             label="Month"
-                            barDetails={{ barValue: 140, barInnerText: `140 hours`, goalValue: 0, goalInnerText: 'of 200 hours' }}
+                            barDetails={{ barValue: 140, barInnerText: `140 hours`, goalValue: 200, goalInnerText: 'of 200 hours' }}
                             containerClasses="h-8"
                             barColorHex={secondaryColorHex}
                         />
@@ -62,7 +62,7 @@ export const Statistics = () => {
                     {focusRanges.showYear && (
                         <ProgressBar
                             label="Year"
-                            barDetails={{ barValue: 400, barInnerText: `400 hours`, goalValue: 0, goalInnerText: 'of 560 hours' }}
+                            barDetails={{ barValue: 400, barInnerText: `725 hours`, goalValue: 900, goalInnerText: 'of 900 hours' }}
                             containerClasses="h-8"
                             barColorHex={primaryColorHex}
                         />
@@ -75,15 +75,15 @@ export const Statistics = () => {
                     <h2 className="text-xl text-center">Most Active</h2>
                     <div className="flex justify-center items-center my-2">
                         <h3>Day of Week -</h3>
-                        <p className="p-1 border text-lg text-center border-gray-200 bg-gray-100 ml-2 rounded w-32">Saturday</p>
+                        <p className="p-1 border text-lg text-center border-gray-200 bg-gray-100 ml-2 rounded w-32">Wednesday</p>
                     </div>
                     <div className="flex justify-center items-center my-2">
                         <h3>Time of Day -</h3>
-                        <p className="p-1 border text-lg text-center border-gray-200 bg-gray-100 ml-2 rounded w-32">10AM - 12PM</p>
+                        <p className="p-1 border text-lg text-center border-gray-200 bg-gray-100 ml-2 rounded w-32">10AM - 3PM</p>
                     </div>
                     <div className="flex justify-center items-center my-2">
                         <h3>Month -</h3>
-                        <p className="p-1 border text-lg text-center border-gray-200 bg-gray-100 ml-2 rounded w-32">February</p>
+                        <p className="p-1 border text-lg text-center border-gray-200 bg-gray-100 ml-2 rounded w-32">May</p>
                     </div>
                 </div>
                 <div className="w-full">
