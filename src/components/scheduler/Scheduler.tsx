@@ -8,13 +8,13 @@ export const Scheduler = () => {
 
     return (
         <>
-            <div className="flex tile rounded shadow flex-col p-2">
+            <div className="flex tile pb-6 rounded shadow flex-col">
                 <div className="flex flex-row">
                     <div className="w-16 h-12"></div>
                     <div className="scheduler-header flex w-full">
                         {
                             currentWeekDates.map((day, index) => {
-                                return <DayHeader key={`${day.dayOfWeek} - ${index}`} day={day.dayOfWeek} dayOfMonth={day.dayOfMonth} currentDay={day.isCurrentDay}/>;
+                                return <DayHeader key={`${day.dayOfWeek} - ${index}`} day={day.dayOfWeek} dayOfMonth={day.dayOfMonth} currentDay={day.isCurrentDay} />;
                             })
                         }
                     </div>

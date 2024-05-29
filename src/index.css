@@ -2,6 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'Open Sans';
+    src: url('./assets/fonts/OpenSans-Regular.ttf') format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-optical-sizing: auto;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('./assets/fonts/OpenSans-Italic.ttf') format("woff");
+    font-weight: normal;
+    font-style: italic;
+    font-optical-sizing: auto;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('./assets/fonts/OpenSans-Bold.ttf') format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-optical-sizing: auto;
+}
+
+
+body {
+    color: #111;
+    font-family: 'Open Sans', sans-serif;
+}
+
 .content {
     display: flex;
     width: 100%;
@@ -34,4 +64,38 @@
         scrollbar-color: gray transparent;
         scrollbar-width: thin;
     }
+}
+
+.progress-transition {
+    transition: width 1s, background-color 1s;
+    animation: fadein 1s;
+}
+
+.navlink .active {
+    background-color: aliceblue;
+    color: #111;
+    border-radius: 0.75rem;
+}
+
+.rounded-x {
+    border-radius: 0.625rem;
+}
+
+.h-50-percent {
+    height: 50%;
+}
+
+.icon-sm {
+    width: 1.3rem;
+    height: 1.3rem;
+}
+
+.icon-active path {
+    color: #111;
+}
+.icon-faded path {
+    color: #49494982;
+}
+.icon-faded:hover path {
+    color: #313131b7;
 }
