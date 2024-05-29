@@ -14,7 +14,7 @@ export const Scheduler = () => {
                     <div className="scheduler-header flex w-full">
                         {
                             currentWeekDates.map((day, index) => {
-                                return <DayHeader key={`${day.dayOfWeek} - ${index}`} day={day.dayOfWeek} dayOfMonth={day.dayOfMonth} currentDay={day.isCurrentDay}/>;
+                                return <DayHeader key={`${day.dayOfWeek} - ${index}`} day={day.dayOfWeek} dayOfMonth={day.dayOfMonth} currentDay={day.isCurrentDay} />;
                             })
                         }
                     </div>
